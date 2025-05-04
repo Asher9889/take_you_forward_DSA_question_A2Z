@@ -35,3 +35,30 @@ function leftRotateByDPlace(arr, place){
 
 arr = [1,2,3,4,5,6,7,8,9]
 console.log(leftRotateByDPlace(arr, 4))
+
+
+/**
+ * Optimal where we do not using extra space.
+ * revering the array
+ */
+
+arr = [1,2,3,4,5,6,7,8,9];
+
+
+function reverse(arr, start, end){
+    while(start < end){
+        [arr[start], arr[end]] = [arr[end], arr[start]]; // destructuring the array and assigning the new value
+        start++;
+        end--;
+    }
+    return arr;
+}
+function leftRotateByDPlaceOptimal(arr, d){
+    let place = d
+    reverse(arr, 0, place - 1);
+    reverse(arr, place, arr.length - 1);
+    reverse(arr, 0, arr.length - 1);
+    return arr;
+}
+
+console.log(leftRotateByDPlaceOptimal(arr, 2))
