@@ -44,16 +44,17 @@ console.log(leftRotateByDPlace(arr, 4))
 
 arr = [1,2,3,4,5,6,7,8,9];
 
-
-function reverse(arr, start, end){
-    while(start < end){
-        [arr[start], arr[end]] = [arr[end], arr[start]]; // destructuring the array and assigning the new value
-        start++;
-        end--;
-    }
-    return arr;
-}
 function leftRotateByDPlaceOptimal(arr, d){
+
+    function reverse(arr, start, end){
+        while(start < end){
+            [arr[start], arr[end]] = [arr[end], arr[start]]; // destructuring the array and assigning the new value
+            start++;
+            end--;
+        }
+        return arr;
+    }
+
     let place = d
     reverse(arr, 0, place - 1);
     reverse(arr, place, arr.length - 1);
