@@ -46,27 +46,27 @@ arr2 = [2,3,4,4,5,6,6,7];
 function unionOptimal(arr1, arr2){
     let i = 0;
     let j = 0;
-    let union = [1]
+    let union = []
     while(i < arr1.length && j < arr2.length){
-        if(arr1[i] < arr2[j]){
+        if(union.length === 0 || arr1[i] < arr2[j]){  // another if check union.length === 0 then insert the elem
             if( arr1[i] !== union[union.length - 1]){
                 union.push(arr1[i]);  
             }
             i++;
         }else {
-            if(arr2[j] !== union[union.length - 1]){
+            if(union.length === 0 || arr2[j] !== union[union.length - 1]){  // another if check union.length === 0 then insert the elem
                 union.push(arr2[j]);
             }
             j++;
         }
     }
-    while(i < arr1.length){
+    while(union.length === 0 || i < arr1.length){
         if(arr1[i] !== union[union.length -1]){
             union.push(arr1[i]);
         }
         i++;
     }
-    while(j < arr2.length){
+    while(union.length === 0 || j < arr2.length){
         if(arr2[j] !== union[union.length -1]){
             union.push(arr2[j]);
         }
