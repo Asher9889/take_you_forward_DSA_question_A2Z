@@ -28,3 +28,18 @@ function repetationOnesAndTwice(arr){
 
 
 console.log(repetationOnesAndTwice(arr))
+
+/**
+ * Optimal: using XOR operator
+ * Space Comp : O(1)
+ * Time Comp: O(n)
+ */
+
+
+function optimal(nums){
+    let result = 0;
+    for(let i = 0; i < nums.length; i++){
+        result = result ^ nums[i];
+    }
+    return result;
+}
