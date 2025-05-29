@@ -40,3 +40,27 @@ function twoSumBetter(arr, target){
     return false;
 }
 console.log(twoSumBetter(arr, 13))
+
+/**
+ * Optimal: Using two pointer and sort the array. 
+ */
+
+arr =  [2,6,5,8,11];
+
+function twoSumOptimal(arr, target){
+    // First sort;
+    
+
+    let i = 0;
+    let j = arr.length - 1;
+    while (i < j){
+        if(arr[i] + arr[j] === target){
+            return [i , j];
+        }
+        else if (arr[i] + arr[j] > target){
+            j--;
+        } else{
+            i++;
+        }
+    }
+}
