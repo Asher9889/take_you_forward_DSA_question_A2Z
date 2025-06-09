@@ -49,8 +49,11 @@ arr =  [2,6,5,8,11];
 
 function twoSumOptimal(arr, target){
     // First sort;
+
     
 
+    
+    // Two Pointer
     let i = 0;
     let j = arr.length - 1;
     while (i < j){
