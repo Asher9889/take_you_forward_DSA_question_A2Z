@@ -2,6 +2,7 @@ let nums1 = [1,3,5];
 let nums2 = [2,2,5,6,7];
 
 // 1, 2
+
 function mergeTwoArray(arr1, arr2){
     let i = 0;
     let j = 0;
@@ -27,4 +28,14 @@ function mergeTwoArray(arr1, arr2){
     return results;
 }
 
-console.log(mergeTwoArray(nums1, nums2))
+function mergeSort(arr, low, high){
+    if(low <= high ) return;
+    const mid = Math.floor(arr.length / 2);
+    mergeSort(arr, low, mid);
+    mergeSort(arr, mid+1, high);
+    const left = arr.slice(low, mid);
+    const right = arr.slice(mid +1, high)
+    mergeTwoArray(left, right);
+}
+
+console.log(mergeSort(nums2, 0, 4))
