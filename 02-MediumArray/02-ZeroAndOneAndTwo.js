@@ -1,4 +1,4 @@
-let arr = [0,1,2,1,0,2,1,2,0,1,1,2,0,1];
+let arr = [0, 1, 2, 1, 0, 2, 1, 2, 0, 1, 1, 2, 0, 1];
 
 /**
  * Brute: Count whole the unique elem and its frequency using loop. the again loop thre times to updated the array.
@@ -13,23 +13,22 @@ let arr = [0,1,2,1,0,2,1,2,0,1,1,2,0,1];
  * Optimal : Dutch National Flag Algorithm
  */
 
-function dnf(arr){
-    for(let i = 0; i < arr.length; i++){
-        let low = 0;
-        let mid = 0;
-        let high = arr.length - 1;
+function dnf(arr) {
 
-        while(mid <= high){
-            if(arr[mid] === 0){
-                [arr[mid] , arr[low]] = [arr[low], arr[mid]];
-                low++;
-                mid++
-            } else if(arr[mid] === 1){
-                mid++;
-            }else if(arr[mid] === 2){
-                [arr[mid], arr[high]] = [arr[high], arr[mid]]
-                high--;
-            }
+    let low = 0;
+    let mid = 0;
+    let high = arr.length - 1;
+
+    while (mid <= high) {
+        if (arr[mid] === 0) {
+            [arr[mid], arr[low]] = [arr[low], arr[mid]];
+            low++;
+            mid++
+        } else if (arr[mid] === 1) {
+            mid++;
+        } else if (arr[mid] === 2) {
+            [arr[mid], arr[high]] = [arr[high], arr[mid]]
+            high--;
         }
     }
     return arr;
