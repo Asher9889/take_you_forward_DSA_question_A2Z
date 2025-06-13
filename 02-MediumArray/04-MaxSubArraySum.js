@@ -31,4 +31,19 @@ function maxSubArraySumBetter(arr){ // O(n*n)
 
     return maxSum;
 }
-console.log(maxSubArraySum(arr))
+
+function maxSubArraySumOptimal(arr){
+    let sum = 0;
+    let maxSum = -Infinity;
+    for(let i = 0; i < arr.length; i++){
+        sum += arr[i];
+        if(sum > maxSum){
+            maxSum = sum;
+        }else if(sum <= 0 ){
+            sum = 0;
+        } 
+    }
+    return maxSum;
+}
+
+console.log(maxSubArraySumOptimal(arr))
