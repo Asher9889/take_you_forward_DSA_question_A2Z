@@ -77,8 +77,6 @@ function majorityOptimal(arr) {
     }
 
     return count1 > Math.floor(arr.length/2) ? el : -1
-
-    
 }
 
 console.log(majorityOptimal([3, 3, 4, 2, 3, 3, 3])); // 3
