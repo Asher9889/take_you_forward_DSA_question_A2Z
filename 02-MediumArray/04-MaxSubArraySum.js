@@ -33,17 +33,23 @@ function maxSubArraySumBetter(arr){ // O(n*n)
 }
 
 function maxSubArraySumOptimal(arr){
-    let sum = 0;
-    let maxSum = -Infinity;
-    for(let i = 0; i < arr.length; i++){
-        sum += arr[i];
-        if(sum > maxSum){
-            maxSum = sum;
-        }else if(sum <= 0 ){
-            sum = 0;
-        } 
+   let maxSum = -Infinity;
+   let currSum = 0;
+   let start = -1;
+   let end = -1;
+   for(let i = 0; i < arr.length; i++){
+    currSum += arr[i];
+    if(currSum > maxSum){
+        maxSum = currSum;
+        end = i
     }
-    return maxSum;
+    if(currSum <= 0){
+        currSum = 0;
+        start = i + 1;
+    }
+   }
+
+   return {maxSum, start, end};
 }
 
 console.log(maxSubArraySumOptimal(arr))
