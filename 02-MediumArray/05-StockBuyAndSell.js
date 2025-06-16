@@ -24,16 +24,16 @@ function buyAndSellBrute(arr) {
  * if any day we bought we need to sell than other days.
  */
 
-[7, 1, 5, 3, 6, 4];
+
 function buyAndSellOptimal(arr){
-    let minPrice = -Infinity; //
+    let minPrice = Infinity; //
     let profit = 0;
     
     for(let i = 0; i < arr.length; i++){
         if(arr[i] < minPrice){ // This day suppose i buy
             minPrice = arr[i];
         }else{
-            let cost = minPrice - arr[i];
+            let cost = minPrice - arr[i]; // this day i sell
             if(cost > profit){
                 profit = cost;
             } 
